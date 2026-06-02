@@ -1,0 +1,76 @@
+# --- Python basics ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+
+# --- Virtual environments ---
+venv/
+.env/
+.venv/
+env/
+ENV/
+
+# --- Build + packaging ---
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# --- Jupyter + notebooks ---
+.ipynb_checkpoints/
+*.ipynb_convert/
+
+# --- Logs + runtime files ---
+*.log
+*.out
+*.err
+*.pid
+
+# --- AI / ML artifacts ---
+# Model weights, checkpoints, datasets, embeddings, etc.
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.h5
+*.tflite
+*.onnx
+*.pb
+*.joblib
+*.pkl
+*.npz
+*.npy
+models/
+checkpoints/
+outputs/
+runs/
+
+# HuggingFace cache
+~/.cache/huggingface/
+huggingface/
+
+# --- Data ---
+data/
+datasets/
+*.csv
+*.tsv
+*.parquet
+
+# --- IDE / editor clutter ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+
+# --- Docker ---
+*.pid
+*.seed
+
