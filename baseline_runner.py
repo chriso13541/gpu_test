@@ -198,7 +198,6 @@ def run_inference(llama_bin: str, model_path: str, prompt: str,
             "--ctx-size",     "2048",
             "--temp",         "0.1",
             "--repeat-penalty", "1.1",
-            "--no-display-prompt",
             "--log-disable",
             exit_flag,
         ]
@@ -263,9 +262,14 @@ def _parse_result(result: subprocess.CompletedProcess, prompt: str,
     else:
         generated = full_output
 
-    # Remove the llama.cpp ASCII logo and UI chrome if it leaked into stdout
+    # Remove llama.cpp UI chrome: logo, menus, timing footer, header block
     lines = [l for l in generated.split("\n")
-             if not any(c in l for c in ["▄▄", "██", "▀▀", "available commands", "/exit", "/regen"])]
+             if not any(c in l for c in [
+                 "▄▄", "██", "▀▀",
+                 "available commands", "/exit", "/regen", "/clear", "/read",
+                 "Prompt:", "Generation:",
+                 "build      :", "model      :", "modalities :",
+             ])]
     generated = "\n".join(lines).strip()
 
     # Parse tokens/sec — handle both old and new timing formats
